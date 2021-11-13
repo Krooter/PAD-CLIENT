@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  submit() {
+  submit(item: MovieModel) {
     if (this.showForm === 1) {
       var item = new MovieModel();
       item.name = this.movieForm.get('name')?.value;

@@ -36,7 +36,6 @@
     <mat-form-field appearance="outline" style="width: 450px;">
       <input id="Name" formControlName="description" matInput #input placeholder="Name" type="text">
       <mat-label> Description </mat-label>
-      <mat-hint *ngIf="movieForm?.get('description')?.hasError" style="color: red;"> *This field is required </mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 450px;">
       <input id="Name" formControlName="actors" matInput #input placeholder="Name" type="text">
