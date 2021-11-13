@@ -28,6 +28,8 @@
 <hr>
 <div *ngIf="showForm != 0">
   <form class="form-fields" [formGroup]="movieForm">
+    <h1 *ngIf="showForm === 1" style="margin-bottom: 10px;">NEW MOVIE</h1>
+    <h1 *ngIf="showForm === 2" style="margin-bottom: 10px;">UPDATE MOVIE</h1>
     <mat-form-field appearance="outline" style="width: 450px;">
       <input id="Name" formControlName="name" matInput #input placeholder="Name" type="text">
       <mat-label> Name </mat-label>

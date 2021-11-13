@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  submit(item: MovieModel) {
+  submit() {
     if (this.showForm === 1) {
       var item = new MovieModel();
       item.name = this.movieForm.get('name')?.value;
@@ -94,6 +94,9 @@ export class AppComponent implements OnInit {
       item.id = this.movieForm.get('id')?.value;
       item.description = this.movieForm.get('description')?.value;
       let actors = this.movieForm.get('actors')?.value;
+      if (actors === []) {
+        item.actors = this.movieForm.get('actors')?.value;
+      }
       item.actors = actors.split(',');
       item.budget = parseInt(this.movieForm.get('budget')?.value);
       this.movieService.updateMovie(item).subscribe(() => {
