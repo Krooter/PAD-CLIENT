@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
       item.description = this.movieForm.get('description')?.value;
       let actors = this.movieForm.get('actors')?.value;
       item.actors = actors.split(',');
-      item.budget = this.movieForm.get('budget')?.value;
+      item.budget = parseInt(this.movieForm.get('budget')?.value);
       this.movieService.addMovie(item).subscribe(() => {
         console.log('Movie added!');
         this.getMovies();
