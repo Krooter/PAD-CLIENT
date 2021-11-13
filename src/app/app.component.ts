@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
       item.id = this.movieForm.get('id')?.value;
       item.description = this.movieForm.get('description')?.value;
       let actors = this.movieForm.get('actors')?.value;
-      if (actors === []) {
+      if (actors.length) {
         item.actors = this.movieForm.get('actors')?.value;
       } else {
         item.actors = actors.split(',');
