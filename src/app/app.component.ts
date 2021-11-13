@@ -46,9 +46,12 @@ export class AppComponent implements OnInit {
 
   deleteMovie(id: string) {
     this.movieService.deleteMovie(id).subscribe(
-      () => {
+      (response) => {
         this.getMovies();
-        console.log('Succes');
+        console.log('Succes', response);
+      }, error => {
+        this.getMovies();
+        console.log('error', error);
       }
     );
   }
