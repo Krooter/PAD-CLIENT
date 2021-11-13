@@ -20,26 +20,6 @@ export class AppComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    // this.movies = [
-    //   {
-    //     actors: ['Ricahrd Loxevski'],
-    //     name: 'Lox is kota',
-    //     budget: '20000',
-    //     description: 'Lorem lipsum aalala',
-    //   },
-    //   {
-    //     actors: ['Ricahrd Loxevski'],
-    //     name: 'Lox is kota 2',
-    //     budget: '30000',
-    //     description: 'Lorem lipsum aalala',
-    //   },
-    //   {
-    //     actors: ['Ricahrd Loxevski'],
-    //     name: 'Lox is kota 3',
-    //     budget: '40000',
-    //     description: 'Lorem lipsum aalala',
-    //   },
-    // ];
     this.getMovies();
     this.initForm();
   }
@@ -49,7 +29,7 @@ export class AppComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       actors: new FormControl([''], [Validators.required]),
       budget: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
     })
   }
 
@@ -64,13 +44,11 @@ export class AppComponent implements OnInit {
     );
   }
 
-  deleteMovie(id: string, item: MovieModel) {
-    this.movieService.deleteMovie(id, item).subscribe(
+  deleteMovie(id: string) {
+    this.movieService.deleteMovie(id).subscribe(
       () => {
+        this.getMovies();
         console.log('Succes');
-      },
-      () => {
-        console.log('Something went wrong');
       }
     );
   }
@@ -87,7 +65,7 @@ export class AppComponent implements OnInit {
       name: new FormControl(item.name, [Validators.required]),
       actors: new FormControl(item.actors, [Validators.required]),
       budget: new FormControl(item.budget, [Validators.required]),
-      description: new FormControl(item.description, [Validators.required]),
+      description: new FormControl(item.description),
     })
   }
 
@@ -96,7 +74,8 @@ export class AppComponent implements OnInit {
       var item = new MovieModel();
       item.name = this.movieForm.get('name')?.value;
       item.description = this.movieForm.get('description')?.value;
-      item.actors = this.movieForm.get('actors')?.value;
+      let actors = this.movieForm.get('actors')?.value;
+      item.actors = actors.split(',');
       item.budget = this.movieForm.get('budget')?.value;
       this.movieService.addMovie(item).subscribe(() => {
         console.log('Movie added!');
@@ -111,8 +90,9 @@ export class AppComponent implements OnInit {
       item.name = this.movieForm.get('name')?.value;
       item.id = this.movieForm.get('id')?.value;
       item.description = this.movieForm.get('description')?.value;
-      item.actors = this.movieForm.get('actors')?.value;
-      item.budget = this.movieForm.get('budget')?.value;
+      let actors = this.movieForm.get('actors')?.value;
+      item.actors = actors.split(',');
+      item.budget = parseInt(this.movieForm.get('budget')?.value);
       this.movieService.updateMovie(item).subscribe(() => {
         console.log('Movie updated!');
         this.getMovies();

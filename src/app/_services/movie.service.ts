@@ -16,11 +16,11 @@ export class MovieService {
     return this.http.get<any>(this.apiUrl + 'movie');
   }
 
-  getMovie(): Observable<any> {
-    return this.http.get<any>(this.apiUrl + 'movie');
+  getMovie(id: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'movie/' + id);
   }
 
-  deleteMovie(id: string, movie: MovieModel): Observable<any> {
+  deleteMovie(id: string): Observable<any> {
     return this.http.delete<any>(this.apiUrl + 'movie/' + id);
   }
 
