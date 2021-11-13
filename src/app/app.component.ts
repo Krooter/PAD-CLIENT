@@ -20,27 +20,27 @@ export class AppComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movies = [
-      {
-        actors: ['Ricahrd Loxevski'],
-        name: 'Lox is kota',
-        budget: '20000',
-        description: 'Lorem lipsum aalala',
-      },
-      {
-        actors: ['Ricahrd Loxevski'],
-        name: 'Lox is kota 2',
-        budget: '30000',
-        description: 'Lorem lipsum aalala',
-      },
-      {
-        actors: ['Ricahrd Loxevski'],
-        name: 'Lox is kota 3',
-        budget: '40000',
-        description: 'Lorem lipsum aalala',
-      },
-    ];
-    //this.getMovies();
+    // this.movies = [
+    //   {
+    //     actors: ['Ricahrd Loxevski'],
+    //     name: 'Lox is kota',
+    //     budget: '20000',
+    //     description: 'Lorem lipsum aalala',
+    //   },
+    //   {
+    //     actors: ['Ricahrd Loxevski'],
+    //     name: 'Lox is kota 2',
+    //     budget: '30000',
+    //     description: 'Lorem lipsum aalala',
+    //   },
+    //   {
+    //     actors: ['Ricahrd Loxevski'],
+    //     name: 'Lox is kota 3',
+    //     budget: '40000',
+    //     description: 'Lorem lipsum aalala',
+    //   },
+    // ];
+    this.getMovies();
     this.initForm();
   }
 
