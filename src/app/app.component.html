@@ -20,7 +20,7 @@
         <mat-icon class="update" (click)="goToUpdate(item)"> update </mat-icon>
       </a>
       <a>
-        <mat-icon class="delete"> delete </mat-icon>
+        <mat-icon class="delete" (click)="deleteMovie(item.id, item)"> delete </mat-icon>
       </a>
     </mat-card-actions>
   </mat-card>

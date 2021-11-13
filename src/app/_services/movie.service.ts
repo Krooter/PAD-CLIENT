@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class MovieService {
   apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMovies(): Observable<any> {
     return this.http.get<any>(this.apiUrl + 'movie');
@@ -20,8 +20,8 @@ export class MovieService {
     return this.http.get<any>(this.apiUrl + 'movie');
   }
 
-  deleteMovie(id: string): Observable<any> {
-    return this.http.delete<any>(this.apiUrl + 'movie/delete/' + id);
+  deleteMovie(id: string, movie: MovieModel): Observable<any> {
+    return this.http.delete<any>(this.apiUrl + 'movie/' + id);
   }
 
   updateMovie(movie: MovieModel): Observable<any> {

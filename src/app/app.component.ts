@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   showForm = 0;
 
-  movies?: MovieModel[];
+  movies!: MovieModel[];
 
   movieForm!: FormGroup;
 
@@ -64,8 +64,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  deleteMovie(id: string) {
-    this.movieService.deleteMovie(id).subscribe(
+  deleteMovie(id: string, item: MovieModel) {
+    this.movieService.deleteMovie(id, item).subscribe(
       () => {
         console.log('Succes');
       },
