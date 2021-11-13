@@ -1,0 +1,90 @@
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+mat-card {
+  overflow: hidden;
+  width: 80%;
+  height: fit-content;
+  max-height: 350px;
+  background-color: rgba(129, 129, 129, 0.466);
+}
+
+mat-card:hover {
+  transition: 1s;
+  color: white;
+  background: rgba(16, 23, 88, 0.425);
+}
+
+a {
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: red;
+}
+
+.update:hover {
+  color: green;
+}
+
+.wrapper {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  grid-template-rows: auto;
+  grid-row-gap: 8px;
+  font-family: Ghotham;
+  margin-bottom: 20px;
+  max-height: fit-content;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
