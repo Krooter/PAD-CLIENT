@@ -96,8 +96,9 @@ export class AppComponent implements OnInit {
       let actors = this.movieForm.get('actors')?.value;
       if (actors === []) {
         item.actors = this.movieForm.get('actors')?.value;
+      } else {
+        item.actors = actors.split(',');
       }
-      item.actors = actors.split(',');
       item.budget = parseInt(this.movieForm.get('budget')?.value);
       this.movieService.updateMovie(item).subscribe(() => {
         console.log('Movie updated!');
